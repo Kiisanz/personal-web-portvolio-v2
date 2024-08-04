@@ -1,0 +1,117 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Footer from '../../components/Footer.astro'
+export async function getStaticPaths() {
+  const projects = await Astro.glob('./**/*.md');
+  
+
+  return projects.map((project, index, arr) => {
+    const { frontmatter } = project;
+
+const prevArticle = arr[index - 1] ? arr[index - 1] : null;
+const nextArticle = arr[index + 1] ? arr[index + 1] : null;
+    const slug = frontmatter.title.toLowerCase()
+      .replace(/[^a-z0-9-]/g, '-')
+      .replace(/-+/g, '-')
+      .trim('-');
+
+    return {
+      params: {
+        slug,
+      },
+      props: {
+        project,
+        title: frontmatter.title,
+        type:frontmatter.type,
+        client:frontmatter.client,
+        year:frontmatter.year,
+        company: frontmatter.company,
+        source: frontmatter.source,
+        image: frontmatter.image,
+        prevArticle,
+        nextArticle,
+        slug,
+      },
+    };
+  });
+}
+
+
+
+const {
+        title,
+        type,
+        client,
+        year,
+        company,
+        source,
+        image,
+        prevArticle,
+        nextArticle,
+        slug} = Astro.props
+
+        const { Content } = Astro.props.project
+
+---
+<MainLayout title="Project">
+	<section id="article">
+    <div class="has-text-grey-darker has-background-white p-2" style="border-radius:15px; border: 1px solid #d8d8d8;">
+      <div class="info is-flex is-flex-direction-column has-background-white-ter px-5 py-3" style="border-radius: 15px;">
+        <div class="info-container is-size-7-mobile">
+          <div class="is-flex is-justify-content-start">
+            <span class="info-label">Client</span>
+            <p class="info-text">{client}</p>
+          </div>
+          <div class="is-flex is-justify-content-start">
+            <span class="info-label">Company</span>
+            <p class="info-text">{company}</p>
+          </div>
+          <div class="is-flex is-justify-content-start">
+            <span class="info-label">Project Type</span>
+            <p class="info-text">{type}</p>
+          </div>
+          <div class="is-flex is-justify-content-start">
+            <span class="info-label">Year</span>
+            <p class="info-text">{year}</p>
+          </div>
+        </div>
+        
+      </div>
+      <div class=" has-text-grey-darker card has-background-white">
+        <div class="is-flex is-flex-direction-column mt-6 has-text-grey-darker markdown-content px-5 is-size-5 is-size-7-mobile">
+          <img class="project-img" src={image} alt="project-image">
+          <h1 class="is-size-3 is-size-5-mobile mt-4">{title}</h1>
+          <div class="is-flex my-5 is-align-items-center" style="gap: 0.75rem;">
+            <a href={source} class="button is-size-7 has-text-white has-background-dark">Visit Project </a>
+          </div>
+          <div class="px-5 is-flex is-flex-direction-column markdown-content" style="gap: 1rem;">
+        <Content />
+      </div>
+    </div>
+            <div class="post-navigation is-flex is-justify-content-space-between is-align-items-start mx-5 mt-5 pt-4" style="border-top: 1px solid #b9b9b9;">
+              {prevArticle && (
+                <a class="prev-post has-text-grey-darker is-size-7-mobile" href={`/projects/${prevArticle.frontmatter.title.toLowerCase()
+      .replace(/[^a-z0-9-]/g, '-')
+      .replace(/-+/g, '-')
+      .trim('-')}`}>
+                  
+← Previous: {prevArticle.frontmatter.title}
+                </a>
+              )}
+              {nextArticle && (
+                <a class="next-post has-text-grey-darker is-size-7-mobile" href={`/projects/${nextArticle.frontmatter.title.toLowerCase()
+      .replace(/[^a-z0-9-]/g, '-')
+      .replace(/-+/g, '-')
+      .trim('-')}`}>
+                  Next: {nextArticle.frontmatter.title} →
+                </a>
+              )}
+            </div>
+            
+    </div>
+    <div class="mx-auto has-text-grey-darker">
+        <Footer />
+    </div>
+    </section>
+  
+</Mainlayout>

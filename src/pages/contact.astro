@@ -1,0 +1,83 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Footer from '../components/Footer.astro'
+
+const myEmail = "rifki.coding@gmail.com"
+
+---
+
+<MainLayout title="Contact">
+	<section id="article">
+    
+    <div class="has-text-grey-darker has-background-white p-2" style="border-radius:15px; border: 1px solid #d8d8d8;">
+      <div class="is-flex is-align-items-start is-flex-direction-column mt-5 px-5">
+        <h2 class="is-size-3 is-size-5-mobile mb-3">🌐 Social Media</h2>
+        <p>
+          Berikut adalah akun resmi Rifki Maulana yang bisa dihubungi di berbagai platform:
+         </p>
+       </div>
+       <div class="is-flex is-flex-direction-column is-align-items-start study-list mb-3 mx-5 mt-4" style="gap: 1rem;">
+        <div class="is-flex px-2 py-1 has-background-white-ter is-flex-direction-column is-align-items-start is-fullwidth " >
+            <div class="image-text-container is-flex is-align-items-center">
+              <img class="icon-image" src="/images/git.png" alt="project-image">
+                <div class="text-content">
+                    <a target="_blank" href="https://github.com/kiisanz" class="is-size-5 is-size-6-mobile has-text-grey-darker">Castanzo.</a>
+                    <span class="is-size-7-mobile">GitHub Account</span>
+                </div>
+            </div>
+        </div>
+        <div class="is-flex px-2 py-1 has-background-white-ter is-flex-direction-column is-align-items-start is-fullwidth " >
+          <div class="image-text-container is-flex is-align-items-center">
+            <img class="icon-image" src="/images/ig.webp" alt="project-image">
+              <div class="text-content">
+                  <a target="_blank" href="https://instagram.com/mchdrfki._" class="is-size-5 is-size-6-mobile has-text-grey-darker">@mchdrfki._</a>
+                  <span class="is-size-7-mobile">Instagram Account</span>
+              </div>
+          </div>
+      </div>
+      <div class="is-flex px-2 py-1 has-background-white-ter is-flex-direction-column is-align-items-start is-fullwidth " >
+        <div class="image-text-container is-flex is-align-items-center">
+          <img class="icon-image" src="/images/fb.png" alt="project-image">
+            <div class="text-content">
+                <a target="_blank" href="https://facebook.com/kiixzuckerberg" class="is-size-5 is-size-6-mobile has-text-grey-darker">Kii X Zuckerberg</a>
+                <span class="is-size-7-mobile">Facebook Account</span>
+            </div>
+        </div>
+    </div>
+    <div class="is-flex px-2 py-1 has-background-white-ter is-flex-direction-column is-align-items-start is-fullwidth " >
+      <div class="image-text-container is-flex is-align-items-center">
+        <img class="icon-image" src="/images/in.png" alt="project-image">
+          <div class="text-content">
+              <a target="_blank" href="https:/linkedin.com/mochamad-rifki-maulana" class="is-size-5 is-size-6-mobile has-text-grey-darker">Mochamad Rifki Maulana</a>
+              <span class="is-size-7-mobile">LinkedIn Account</span>
+          </div>
+      </div>
+  </div>
+    </div>
+    
+
+    <div class="form-container px-5 mt-5" style="width: 100%;">
+      <h2 class="is-size-3 is-size-5-mobile mb-3">📧 Send Email</h2>
+      <div class="input-container">
+        <div class="control is-flex mb-3" style="gap: 1rem;">
+          <input class="input has-background-white-ter has-text-grey-darker" style="border-radius:10px; height:50px;" type="text" placeholder="Name" />
+          <input class="input  has-background-white-ter has-text-grey-darker" style="border-radius:10px; height:50px;" type="text" placeholder="Email Address"/>
+        </div>
+        
+      </div>
+      <textarea class="textarea has-background-white-ter has-text-grey-darker" style="border-radius:10px;" placeholder="Messages"></textarea>
+      <div class="mt-4">
+      <button class="button" style="width: 100%;">Submit</button>
+    </div>
+    </div>
+    
+    
+         <div class="mx-auto has-text-grey-darker">
+          <Footer />
+        </div>
+      </div>      
+
+     
+    </section>
+  
+</Mainlayout>

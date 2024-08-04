@@ -1,0 +1,33 @@
+---
+import NavItem from "./NavItem.astro"
+---
+
+<nav class="navbar is-fixed-top has-background-white custom-container" role="navigation" aria-label="main navigation">
+
+        <!-- Menu -->
+        <div class="custom-container nav-menu is-flex is-flex-direction-row is-justify-content-space-between is-align-items-center">
+            <div class="container is-flex is-align-items-center">
+                <NavItem />
+            </div>
+
+            <!-- Button -->
+            <a href="/contact" class="button is-black is-flex is-justify-content-center is-align-items-center contact-button px-3 py-2">
+                <span class="has-text-grey-lighter">@</span>
+                <p class="ml-1">Contact</p>
+            </a>
+        </div>
+    </nav>
+
+
+<script>
+	 document.addEventListener("DOMContentLoaded", function() {
+            var path = window.location.pathname;
+            var navItems = document.querySelectorAll('.navbar-item');
+
+            navItems.forEach(function(navItem) {
+                if (navItem.getAttribute('href') === path) {
+                    navItem.classList.add('active');
+                }
+            });
+        });
+</script>

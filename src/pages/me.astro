@@ -1,0 +1,114 @@
+---
+import IntroWrapper from "../components/IntroWrapper.astro"
+import Projects from "../components/Projects.astro"
+import Articles from "../components/Articles.astro"
+import Mainlayout from "../layouts/MainLayout.astro"
+import Footer from "../components/Footer.astro";
+
+const currentYear = new Date().getFullYear();
+const myEmail = "rifki.coding@gmail.com"
+---
+
+<Mainlayout title="About me">
+	<section id="about">
+    <div class="container has-background-white profile-wrapper">
+        <div class="card has-background-white">
+            <div class="header is-size-4 is-size-6-mobile">
+                Tentang Saya
+            </div>
+            <div class="text-profile has-background-white has-text-grey-darker is-size-2">
+               
+                <h1>Saya <a href="/me" class="name">Rifki Maulana</a> <span class="wave">👋</span></h1>
+                </div>
+                
+                <div class="paragraph-text is-flex is-flex-direction-column is-align-items-start has-background-white has-text-grey-darker" style="gap: 2rem;">
+                    <p >Halo, nama saya Mochamad Rifki Maulana.
+                        Saya adalah lulusan baru dari <a class="has-text-grey-darker" href=""> SMA Negeri 1 Jalaksana,</a> jurusan <a class="has-text-grey-darker" href="">Matematika dan Ilmu Pengetahuan Alam. </a> Dengan ketertarikan di bidang sains dan teknologi dan semangat untuk belajar serta berinovasi dalam teknologi. Saya aktif terlibat dalam proyek-proyek teknologi di lingkungan sekolah dan komunitas.
+                        Saat ini, saya sedang menempuh studi S1 Ilmu Hukum di  <a class="has-text-grey-darker" href="">Universitas Kuningan. </a>
+                    </p>
+
+                    <div class="has-background-white-ter p-4 image">
+                        <img src="https://i.ibb.co.com/M6Xx4VB/453998380-1039572174838218-6223052754108552960-n.jpg" alt="">
+                    </div>
+                    <div class="header is-size-4 is-size-6-mobile">
+                        More about me
+                    </div>
+                    <p>
+                        Sejak SMA, saya selalu memiliki ketertarikan yang mendalam terhadap teknologi dan ilmu pengetahuan. Saya sangat menyukai fisika dan kimia karena kedua bidang ini membuka wawasan mendalam tentang mekanisme fundamental yang menggerakkan dunia. Dari hukum-hukum fisika hingga reaksi kimia, ilmu-ilmu ini mengajarkan saya cara memahami dan memanipulasi elemen-elemen dasar alam.</p>
+                        <p>
+                        Selain itu, saya juga memiliki minat besar di bidang IT, saya menikmati belajar dan menerapkan keterampilan teknis seperti pemrograman, analisis data, pengembangan perangkat lunak, pembuatan game, hingga perakitan komputer. Bagi saya, teknologi adalah alat yang luar biasa untuk mewujudkan ide kreatif dan inovatif, dan menggabungkannya dengan sains memberikan perspektif unik dalam menghadapi tantangan modern dengan solusi yang cerdas.
+                    </p>
+                   
+                    <div class="is-size-4 is-size-5-mobile sub-title">
+                        🎓 Pendidikan
+                    </div>
+                    <div class="is-flex is-flex-direction-column is-align-items-start study-list mb-3">
+                    <div class="is-flex px-3 py-2 has-background-white-ter is-flex-direction-column is-align-items-start is-fullwidth">
+                        <h1 class="is-size-5 is-size-6-mobile">S1 Ilmu Hukum</h1>
+                        <span class="is-size-7-mobile">Fakultas Hukum, Universitas Kuningan</span>
+                        <span class="is-size-7">2024 - now</span>
+                    </div>
+                    <div class="is-flex px-3 py-2 has-background-white-ter is-flex-direction-column is-align-items-start is-fullwidth">
+                        <h1 class="is-size-5 is-size-6-mobile">Sekolah Menengah Atas</h1>
+                        <span class="is-size-7-mobile">Matematika dan Ilmu Pengetahuan Alam, SMAN 1 Jalaksana</span>
+                        <span class="is-size-7">2024 - now</span>
+                    </div>
+
+                    <div class="has-background-white-ter p-4 image-wrapper">
+                        <img src="https://i.ibb.co.com/hg2Fk2T/453866936-1039593091502793-7931855380664815634-n.jpg" alt="">
+                    </div>
+
+                    <p>
+                        Meskipun saya sangat menyukai dunia teknologi, saya memutuskan untuk melanjutkan studi di bidang Ilmu Hukum. Pilihan ini didorong oleh keinginan untuk memahami lebih dalam tentang regulasi dan kebijakan yang mengatur penggunaan teknologi dalam masyarakat. Saya percaya bahwa dengan pemahaman yang baik tentang hukum, saya dapat berkontribusi dalam menciptakan kerangka hukum yang mendukung inovasi teknologi, sambil memastikan bahwa teknologi digunakan secara etis dan bertanggung jawab.
+                    </p>
+                    
+                </div>
+                <div class="is-size-4 is-size-5-mobile sub-title">
+                    🏢 Pengalaman
+                </div>
+                <div class="is-flex is-flex-direction-column is-align-items-start study-list">
+                <div class="is-flex px-3 py-2 has-background-white-ter is-flex-direction-column is-align-items-start is-fullwidth">
+                    <h1 class="is-size-5 is-size-6-mobile">Ketua Tim dan Penulis Karya Tulis Ilmiah</h1>
+                    <span class="is-size-7-mobile">LKTIN Universitas Pendidikan Indonesia (2023)</span>
+                    <span class="is-size-7 pt-3">Memimpin tim penelitian dan menyusun karya tulis ilmiah, serta merancang eksperimen dalam pengembangan teknologi pirolisis untuk mengubah sampah menjadi energi, menganalisis data dengan teknik statistik, dan mempresentasikan hasil kepada panel juri. Mengkaji teknologi pirolisis untuk mengubah sampah menjadi energi terbarukan dengan fokus pada keberlanjutan dan pengurangan emisi karbon hingga 15%.</span>
+                </div>
+                <div class="is-flex px-3 py-2 has-background-white-ter is-flex-direction-column is-align-items-start is-fullwidth">
+                    <h1 class="is-size-5  is-size-6-mobile">Anggota Tim Olimpiade Kimia</h1>
+                    <span class="is-size-7-mobile">OSN Tingkat Kabupaten Kuningan (2023)</span>
+                    <span class="is-size-7 pt-3">Berpartisipasi dalam seleksi OSN tingkat kabupaten, mengerjakan soal-soal kimia tingkat lanjut dengan akurasi 85%, dan mengikuti bimbingan intensif yang meningkatkan pemahaman kimia organik sebesar 20%. Terpilih sebagai peserta OSN dari 500 siswa di sekolah, menunjukkan kemampuan akademik yang unggul dalam bidang kimia.</span>
+                </div>
+
+                <div class="is-flex px-3 py-2 has-background-white-ter is-flex-direction-column is-align-items-start is-fullwidth">
+                    <h1 class="is-size-5  is-size-6-mobile">Sekretaris Dewan Ambalan</h1>
+                    <span class="is-size-7-mobile">Pramuka Pangkalan SMA Negeri 1 Jalaksana (2022 - 2024)</span>
+                    <span class="is-size-7 pt-3">Sebagai Sekretaris Dewan Ambalan dari tahun 2022 hingga 2024, saya bertanggung jawab atas administrasi organisasi, pengorganisasian kegiatan, dan dokumentasi. Saya mengelola notulen rapat, merencanakan kegiatan, serta berkoordinasi dengan anggota tim untuk memastikan semua kegiatan berjalan lancar. Selain itu, saya juga berperan sebagai penghubung antara dewan ambalan dan pihak sekolah.</span>
+                </div>
+
+                <div class="has-background-white-ter p-4 image-wrapper">
+                    <img src="https://i.ibb.co.com/vcMHpfW/404321443-859819156146855-7595046327009571684-n.jpg" alt="">
+                </div>
+
+                <div class="is-size-4 is-size-5-mobile sub-title mt-5">
+                    🏆 Penghargaan
+                </div>
+                <div class="is-flex is-flex-direction-column is-align-items-start study-list">
+                <div class="is-flex px-3 py-2 has-background-white-ter is-flex-direction-column is-align-items-start is-fullwidth">
+                    <h1 class="is-size-6 is-size-7-mobile">Salah satu dari 10 finalis Lomba Karya Tulis Ilmiah Nasional, Kimia Expo 2023 Universitas Pendidikan Indonesia</h1>
+                </div>
+          
+                <div class="is-flex px-3 py-2 has-background-white-ter is-flex-direction-column is-align-items-start is-fullwidth">
+                    <h1 class="is-size-6 is-size-7-mobile">Honorable Mention Lomba Fisika Edutainer Batch 11 2022</h1>
+                </div>
+                <div class="is-flex px-3 py-2 has-background-white-ter is-flex-direction-column is-align-items-start is-fullwidth">
+                    <h1 class="is-size-6 is-size-7-mobile">Juara 1 Tingkat Madya Gladi Tangguh BMSC VI, SMK 3 Kuningan 2023</h1>
+                </div>
+                </div>
+            </div>
+            
+    </div>
+    <div class="mx-auto has-text-grey-darker">
+        <Footer />
+    </div>
+    </section>
+  
+</Mainlayout>

@@ -1,0 +1,37 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Footer from '../components/Footer.astro'
+
+const myEmail = "rifki.coding@gmail.com"
+
+---
+
+<MainLayout title="Toolkit">
+	<section id="article">
+    
+    <div class="has-text-grey-darker has-background-white p-2" style="border-radius:15px; border: 1px solid #d8d8d8;">
+      <div class="is-flex is-align-items-start is-flex-direction-column mt-5 px-5">
+        <h2 class="is-size-3 is-size-5-mobile mb-3">⚙️ Toolkit</h2>
+        <p>
+          Berikut adalah beberapa toolkit yang bisa anda gunakan:
+         </p>
+       </div>
+       <div class="is-flex is-flex-direction-column is-align-items-start study-list mb-3 mx-5 mt-4" style="gap: 1rem;">
+        <div class="is-flex px-2 py-1 has-background-white-ter is-flex-direction-column is-align-items-start is-fullwidth " >
+            <div class="image-text-container is-flex is-align-items-center">
+              <img class="icon-image" src="/images/crp.png" alt="project-image">
+                <div class="text-content">
+                    <a href="/toolkit/cryptarithm" class="is-size-5 is-size-6-mobile has-text-grey-darker">Cryptarithm Solver</a>
+                    <span class="is-size-7-mobile">Menyelasikan puzzle cryptarithm</span>
+                </div>
+            </div>
+        </div>
+         <div class="mx-auto has-text-grey-darker">
+          <Footer />
+        </div>
+      </div>      
+
+     
+    </section>
+  
+</Mainlayout>

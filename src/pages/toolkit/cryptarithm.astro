@@ -1,0 +1,336 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Footer from '../../components/Footer.astro';
+
+const myEmail = "rifki.coding@gmail.com";
+---
+
+<MainLayout title="Cryptarithm Solver">
+    <section id="article">
+        <div class="has-text-grey-darker has-background-white p-2" style="border-radius:15px; border: 1px solid #d8d8d8;">
+            <div class="is-flex is-align-items-start is-flex-direction-column mt-5 px-5">
+                <h2 class="is-size-3 is-size-5-mobile mb-3">🔣 Cryptarithm Solver</h2>
+                <p>
+                    Menyelesaikan puzzle cryptarithm secara otomatis! Silahkan baca tab penjelasan untuk memahami metode penyelesaian yang digunakan.
+                </p>
+            </div>
+
+            <div class="tabs is-boxed has-background-white has-text-grey-darker mx-5 mt-5">
+              <ul>
+                  <li class="is-active" data-tab="tab1"><a>Tab 1</a></li>
+                  <li data-tab="tab2"><a>Tab 2</a></li>
+              </ul>
+          </div>
+
+          <!-- Tab Content -->
+          <div id="tab1" class="tab-content is-active mx-5">
+            <div class="m-5">
+              <form id="cryptarithm-form">
+                  <div class="input-field">
+                      <label for="word1">Enter Word 1:</label>
+                      <input type="text" id="word1" placeholder="Word 1" required>
+                  </div>
+                  <div class="input-field">
+                      <label for="word2">Enter Word 2:</label>
+                      <input type="text" id="word2" placeholder="Word 2" required>
+                  </div>
+                  <div class="input-field">
+                      <label for="result">Enter Result:</label>
+                      <input type="text" id="result" placeholder="Result" required>
+                  </div>
+                  <button type="button" class="button" onclick="solveCryptarithm()">Solve</button>
+              </form>
+              <div id="problem" class="mt-4"></div>
+              <div id="solution" class="mt-4"></div>
+          </div>
+          </div>
+          <div id="tab2" class="tab-content">
+            <div class="container mt-5">
+              <div class="box has-background-light has-text-dark p-4" style="border-radius: 10px;">
+                  <h2 class="title is-3 has-text-dark">Apa Itu Cryptarithm?</h2>
+                  <p>
+                      Cryptarithm adalah jenis puzzle matematika di mana huruf-huruf mewakili angka tertentu. Tujuannya adalah menemukan angka yang menggantikan huruf-huruf tersebut sehingga persamaan matematikanya menjadi benar.
+                  </p>
+                  <p>
+                      Sebagai contoh, pertimbangkan puzzle berikut:
+                  </p>
+                  <pre class="has-background-light has-text-dark is-size-3 is"><code class="has-background-light">
+      AB
+      AB
+    -------+
+      BCC
+                  </code></pre>
+                  <p>
+                      Untuk puzzle ini, jika kita mengganti huruf dengan angka yang benar, kita akan mendapatkan hasil seperti berikut:
+                  </p>
+                  <pre class="has-background-light has-text-dark is-size-3 is"><code class="has-background-light">
+      61
+      61
+    -------+
+      122
+                  </code></pre>
+                  <p>
+                      Di sini, <strong>A</strong> adalah 6, <strong>B</strong> adalah 1, dan <strong>C</strong> adalah 2. Mencari nilai huruf yang benar memerlukan pemahaman tentang bagaimana hubungan antara huruf-huruf tersebut bekerja.
+                  </p>
+                  <h3 class="title is-4 mt-4 has-text-dark">Metode Penyelesaian</h3>
+                  <p>
+                      Salah satu pendekatan untuk menyelesaikan cryptarithm adalah dengan mencoba berbagai kombinasi angka untuk huruf-huruf yang terlibat. Misalnya, untuk puzzle <strong>AB + AB = BCC</strong>, kita perlu menemukan angka yang sesuai untuk <strong>A</strong>, <strong>B</strong>, dan <strong>C</strong>. Angka yang mungkin berada dalam rentang 0 hingga 9.
+                  </p>
+                  <p>
+                      Dengan total 720 kemungkinan kombinasi (0 hingga 9 untuk setiap huruf), kita bisa mencoba setiap kombinasi hingga menemukan solusi yang memenuhi persamaan matematikanya.
+                  </p>
+                  <p>
+                      Metode ini mungkin terdengar sederhana, namun sering kali efektif dalam menemukan solusi untuk puzzle cryptarithm.
+                  </p>
+              </div>
+          </div>
+          </div>
+      </div>
+  </div>
+</div>
+            
+            <div class="mx-auto has-text-grey-darker">
+                <Footer />
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+      function solveCryptarithm() {
+    const word1 = document.getElementById('word1').value.trim();
+    const word2 = document.getElementById('word2').value.trim();
+    const result = document.getElementById('result').value.trim();
+
+    const words = [word1, word2];
+    const possibleDigits = Array.from({ length: 10 }, (_, i) => i);
+    const uniqueLetters = Array.from(new Set(words.join('') + result));
+    const numLetters = uniqueLetters.length;
+
+    if (numLetters > 10) {
+        document.getElementById('solution').innerHTML = 'Too many unique letters. No solution possible.';
+        return;
+    }
+
+    function getWordValue(word, letterToDigit) {
+        return Array.from(word).reduce((sum, letter, idx) => {
+            return sum + letterToDigit[letter] * Math.pow(10, word.length - 1 - idx);
+        }, 0);
+    }
+
+    function isValidSolution(letterToDigit) {
+        const wordValues = words.map(word => getWordValue(word, letterToDigit));
+        const resultValue = getWordValue(result, letterToDigit);
+        return wordValues.reduce((acc, val) => acc + val, 0) === resultValue;
+    }
+
+    function solveRecursively(usedDigits, letterToDigit) {
+        if (Object.keys(letterToDigit).length === numLetters) {
+            if (isValidSolution(letterToDigit)) {
+                const wordValues = words.map(word => getWordValue(word, letterToDigit));
+                const resultValue = getWordValue(result, letterToDigit);
+
+                // Populate the solution section
+                const solutionContainer = document.getElementById('solution');
+                solutionContainer.innerHTML = `
+                    <div class="solution-header">
+    <h2>Solution</h2>
+</div>
+<div class="solution-container" style=" display: flex;
+        justify-content: center; 
+        padding: 10px 50px;">
+    <div class="solution-grid">
+        <div class="solution-content">
+            ${words.map((word, idx) => `
+                <div class="solution-row">
+                    ${Array.from(word).map(letter => `
+                        <input type="text" value="${letterToDigit[letter]}" class="solution-cell" style="height:50px; width:50px;text-align:center; font-size:2rem;" disabled />
+                    `).join('')}
+                </div>
+            `).join('')}
+            <div class="separator" style="text-align:start;">----------------------+</div>
+            <div class="solution-row">
+                ${Array.from(result).map(letter => `
+                    <input type="text" value="${letterToDigit[letter]}" class="solution-cell" style="height:50px; width:50px;text-align:center; font-size:2rem;" disabled />
+                `).join('')}
+            </div>
+        </div>
+    </div>
+</div>
+
+                `;
+                console.log('Solution found:', letterToDigit);
+                return letterToDigit;
+            }
+            return null;
+        }
+
+        const currentLetter = uniqueLetters[Object.keys(letterToDigit).length];
+        for (const digit of possibleDigits) {
+            if (!Object.values(letterToDigit).includes(digit)) {
+                letterToDigit[currentLetter] = digit;
+                usedDigits.add(digit);
+
+                const found = solveRecursively(usedDigits, letterToDigit);
+                if (found) {
+                    return found;
+                }
+
+                delete letterToDigit[currentLetter];
+                usedDigits.delete(digit);
+            }
+        }
+        return null;
+    }
+
+    const solution = solveRecursively(new Set(), {});
+    if (!solution) {
+        document.getElementById('solution').innerHTML = '<div style="text-align:start; display:flex; justif-content:center; width:100%;" class="no-solution">No valid solution found.</div>';
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tabs li');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetId = tab.getAttribute('data-tab');
+
+                    // Remove 'is-active' class from all tabs and content
+                    tabs.forEach(t => t.classList.remove('is-active'));
+                    contents.forEach(c => c.classList.remove('is-active'));
+
+                    // Add 'is-active' class to the clicked tab and the corresponding content
+                    tab.classList.add('is-active');
+                    document.getElementById(targetId).classList.add('is-active');
+                });
+            });
+        });
+    </script>
+  
+  <style>
+
+    .tabs .is-active a{
+      background-color: #2980b9;
+      border: none;
+      color: white;
+      transition: all .3 ease-in-out;
+    }
+
+    .tabs a:hover{
+      background-color: #2980b9;
+      border: none;
+      color: white;
+    }
+
+.tab-content {
+            display: none;
+        }
+        .tab-content.is-active {
+            display: block;
+        }
+        .tabs.is-centered {
+            margin-bottom: 1rem;
+        }
+
+    /* Container for the solution section */
+    .solution-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9; /* Light background color */
+        border-radius: 8px;
+        border: 1px solid #ddd; /* Light border color */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for better depth */
+    }
+
+    .solution-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .solution-header h2 {
+        font-size: 24px;
+        color: #333; /* Darker color for the header */
+        font-weight: bold;
+    }
+
+    /* Grid layout for solution rows */
+    .solution-grid {
+        display: grid;
+        gap: 5px;
+        margin-bottom: 20px;
+    }
+
+    /* Each row of solution cells */
+    .solution-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30px, 1fr)); /* Adjusted for single character */
+        gap: 5px;
+        align-items: center;
+    }
+
+    /* Styling for solution cells */
+    .solution-cell {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #3498db; /* Blue border for cells */
+        border-radius: 6px;
+        background-color: #ecf0f1; /* Light gray background for cells */
+        height: 40px;
+        width: 30px; /* Fixed width for single character */
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        color: #2c3e50; /* Dark color for text */
+        box-sizing: border-box;
+    }
+
+    .separator {
+        height: 2px;
+        background-color: #3498db; /* Blue separator */
+        margin: 20px 0;
+    }
+
+    /* Styling for the input fields and button */
+    .input-field {
+        margin-bottom: 15px;
+    }
+
+    .input-field label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #34495e; /* Darker color for labels */
+    }
+
+    .input-field input {
+        padding: 10px;
+        border: 2px solid #3498db; /* Blue border for inputs */
+        border-radius: 6px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .button {
+        background-color: #3498db; /* Blue background for the button */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .button:hover {
+        background-color: #2980b9; /* Darker blue on hover */
+    }
+</style>
+
+
+</MainLayout>

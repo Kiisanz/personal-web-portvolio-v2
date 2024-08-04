@@ -1,0 +1,43 @@
+---
+const generatePageNumbers = (current, last) => {
+  const pages = [];
+  for (let i = 1; i <= last; i++) {
+    pages.push(i);
+  }
+  return pages;
+};
+
+const { page, url } = Astro.props
+
+const pages = generatePageNumbers(page.currentPage, page.lastPage);
+---
+
+<div class="pagination-container container">
+        <div class="pagination">
+          <!-- Previous Button -->
+          <button
+            onclick={`location.href='${page.url.prev || page.url.first}'`}
+            disabled={!page.url.prev}
+          >
+            &lt;
+          </button>
+        
+          <!-- Page Number Buttons -->
+          {pages.map((pageNum) => (
+            <a
+              class={`has-text-grey-darker ${pageNum === page.currentPage ? 'active' : ''}`}
+              href={`${url}/page/${pageNum}`}
+            >
+              {pageNum}
+            </a>
+          ))}
+        
+          <!-- Next Button -->
+          <button
+            onclick={`location.href='${page.url.next || page.url.last}'`}
+            disabled={!page.url.next}
+          >
+            &gt;
+          </button>
+        </div>
+      </div>

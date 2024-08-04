@@ -1,0 +1,39 @@
+---
+import Navbar from "../components/Navbar.astro"
+import '../styles/global.css'
+import 'katex/dist/katex.min.css';
+import katex from 'katex';
+const { title } = Astro.props
+---
+
+<html lang="en" class="has-navbar-fixed-top">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Rifki Maulana - { title }</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.0/katex.min.css">
+	</head>
+	<body class="has-background-white-ter custom-container has-text-grey-darker">
+		<div class="navbar-wrapper">
+			<Navbar />
+		</div>
+		<main>
+			<slot />
+			
+		      </main>
+		      <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.0/katex.min.js"></script>
+		      <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.0/contrib/auto-render.min.js"></script>
+		      <script>
+			document.addEventListener('DOMContentLoaded', function () {
+			  renderMathInElement(document.body, {
+			    delimiters: [
+			      { left: "$$", right: "$$", display: true },
+			      { left: "$", right: "$", display: false }
+			    ]
+			  });
+			});
+		      </script>
+	</body>
+</html>

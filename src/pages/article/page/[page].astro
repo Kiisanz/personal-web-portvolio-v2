@@ -1,0 +1,78 @@
+---
+import MainLayout from "../../../layouts/MainLayout.astro"
+import Footer from "../../../components/Footer.astro";
+import Pagination from "../../../components/Pagination.astro";
+
+const currentYear = new Date().getFullYear();
+const myEmail = "rifki.coding@gmail.com"
+
+function formatDate(dateString) {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString('en-US', options);
+}
+
+export async function getStaticPaths({ paginate }) {
+  
+const articles = await Astro.glob('../*.md');
+
+  return paginate(articles, { pageSize: 5 });
+}
+
+const { page } = Astro.props;
+console.log(page)
+
+const slugify = (title) => {
+  return title.toLowerCase()
+             .replace(/[^a-z0-9-]/g, '-')
+             .replace(/-+/g, '-')
+             .trim('-');
+};
+---
+
+<MainLayout title="Articles">
+	<section id="article">
+    <div class="has-text-grey-darker has-background-white p-2" style="border-radius:15px;">
+        <div class="is-size-3 px-5 pt-5 is-size-5-mobile" style="font-weight: 700;">
+                Articles
+            </div>
+            <p class="is-size-6 px-5 is-size-7-mobile">
+                Kumpulan tulisan Rifki Maulana, termasuk arsip tulisan di platform lain.
+            </p>
+        <div class=" has-text-grey-darker card has-background-white">
+                <div class="is-flex is-flex-direction-column mt-3">
+                {page.data.map(({ frontmatter }) => (
+                    <div key={slugify(frontmatter.title)}>
+                        <div class="is-flex is-justify-content-space-between is-align-items-center article-button px-5">
+                            <div class="is-flex article-list py-3" style="border-bottom: 1px solid #b1b1b1;">
+        
+            <img class="article-img" src={frontmatter.image} alt="project-image">
+        
+                                <div class="is-flex is-flex-direction-column is-align-items-start title-wrap">
+                                    <a href={"/article/" + slugify(frontmatter.title)}  class="is-size-4 article-title">{frontmatter.title}</a>
+                                    <span class="date-category">
+                                        <span>{formatDate(frontmatter.date)}</span>
+                                        <span class="separator">— 
+        
+        in</span>
+                                        <a class="categories" href={`/article/category/${frontmatter.category}/page/1`}>{frontmatter.category}</a>
+                                </span>
+                                </div>
+                            </div>
+                            <div class="chevron">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M9 6l6 6l-6 6"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <Pagination page={page} url="/article"
+    </div>
+    <div class="mx-auto has-text-grey-darker">
+        <Footer />
+    </div>
+    </section>
+  
+</Mainlayout>

@@ -1,0 +1,47 @@
+---
+const projects = await Astro.glob('../pages/projects/*.md');
+
+const slugify = (isTitle) => {
+    if (typeof isTitle !== 'string') {
+        console.error('Invalid input: isTitle should be a string.');
+        return '';
+    }
+    
+    return isTitle
+        .toLowerCase()
+        .replace(/[^a-z0-9-]/g, '-')
+        .replace(/-+/g, '-')
+        .trim('-');
+};
+
+---
+
+<div class="project is-flex is-flex-direction-column has-background-white-ter p-5 mt-6">
+       <div class="is-flex is-justify-content-space-between is-align-items-center">
+        <h2 class="is-size-4 is-size-5-mobile">Projects</h2>
+        <a href="/projects" class="button is-white is-flex is-justify-content-center is-align-items-center project-button px-3 py-2">
+                
+                <p class="ml-1">See All Project</p>
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></svg>
+            </a>
+       </div>
+       <div class="is-flex is-flex-direction-column mt-3">
+        {projects.slice(0, 3).map(project => (
+            <div class="my-3" key={slugify(project.frontmatter.title)}>
+            <a href={"projects/"+slugify(project.frontmatter.title)} class="button is-white is-flex is-justify-content-space-between is-align-items-center project-button px-5 py-4">
+            <div class="is-flex project-list">
+            <img class="project-img" src={project.frontmatter.image || "/image/images.png"} alt="project-image">
+            <div class="is-flex is-flex-direction-column is-align-items-start title-wrap">
+                <h1 class="is-size-5 project-title">{project.frontmatter.title}</h1>
+                <p class="is-size-6" style="color: rgb(114, 114, 114);">{project.frontmatter.type}</p>
+            </div>
+            </div>
+                <div class="chevron">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                </div>
+            </a>
+            </div>
+            ))}
+        
+       </div>
+</div>

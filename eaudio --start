@@ -1,0 +1,4 @@
+○ pulseaudio.service - Sound Service
+     Loaded: loaded (]8;;file://rifkimaulana-desktop/usr/lib/systemd/user/pulseaudio.service/usr/lib/systemd/user/pulseaudio.service]8;;; [0;1;32menabled[0m; preset: [0;1;32menabled[0m)
+     Active: inactive (dead)
+TriggeredBy: ○ pulseaudio.socket

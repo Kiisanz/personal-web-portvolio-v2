@@ -1,0 +1,52 @@
+---
+import IntroWrapper from "../components/IntroWrapper.astro"
+import Projects from "../components/Projects.astro"
+import Articles from "../components/Articles.astro"
+import Footer from "../components/Footer.astro"
+import Mainlayout from "../layouts/MainLayout.astro"
+const myEmail = "rifki.coding@gmail.com"
+---
+
+<Mainlayout title="Homepage">
+	<section id="hero">
+    <div class="container has-background-white profile-wrapper">
+      <IntroWrapper />
+      <div class="py-3">
+      <Projects />
+    </div>
+    <div class="pb-3">
+      <Articles />
+    </div>
+    <div class="is-flex is-justify-content-center mt-6 is-flex-direction-column is-align-items-center">
+      <h1 style="font-weight: 700;" class="is-size-2 is-size-4-mobile">Connect with Me.</h1>
+      <span class="is-size-7-mobile" style="text-align: center;">Let's discuss and collaborate on techology and science projects.</span>
+
+      <div class="mt-5 mb-3 is-flex is-align-items-center" style="gap: 1rem;">
+        <a href="/contact" class="button is-black is-flex is-justify-content-center is-align-items-center contact-button px-3 py-2">
+          <span class="has-text-grey-lighter">@</span>
+          <p class="ml-1">Contact me</p>
+      </a>
+      <input type="text" id="textToCopy" value={myEmail} disabled style="display: none;">
+      <a id="copyButton" class="button  is-flex is-justify-content-center is-align-items-center copy-button px-3 py-2">
+        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-copy"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg>
+        <p class="ml-1">Copy Email</p>
+    </a>
+      </div>
+    </div>
+    <Footer />
+    </div>
+  </section>
+  <script>
+    const copyButton = document.getElementById('copyButton');
+    const textToCopy = document.getElementById('textToCopy').value;
+        
+    copyButton.addEventListener('click', async () => {
+        try {
+      await navigator.clipboard.writeText(textToCopy);
+      alert('Text has been copied to clipboard!');
+        } catch (err) {
+      console.error('Gagal menyalin teks: ', err);
+        }
+    });
+        </script>
+</Mainlayout>
