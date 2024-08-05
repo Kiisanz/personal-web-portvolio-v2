@@ -1,8 +1,8 @@
 ---
 image : https://i.ibb.co.com/SyJzCHY/images-20.jpg
 date: 2024-8-5
-title :Politik Mercusuar: Analisis Proyek Infrastruktur Pemerintahan Jokowi dan Implikasinya
-category: Ekonomi dan Politik
+title : "Politik Mercusuar: Analisis Proyek Infrastruktur Pemerintahan Jokowi dan Implikasinya"
+category: "Ekonomi dan Politik"
 tags: ["Nawacita", "Ekonomi", "Pemerintah"]
 
 ---
