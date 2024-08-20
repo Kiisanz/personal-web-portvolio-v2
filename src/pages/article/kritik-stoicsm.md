@@ -28,26 +28,26 @@ Tokoh penganut Stoicism lainnya yang membela aliran filsafat ini dari serangan N
 
 Berikut adalah beberapa pernyataan Nietzsche, Marcus Aurelius, dan Epictetus yang berkaitan dengan Stoicism:
 
-<blockquote>
+
 Nietzsche
 
 "Stoicism adalah moralitas budak." - Beyond Good and Evil
 "Para Stoa itu seperti seorang pria yang berdiri di depan petinju dan telah menutup matanya agar tidak melihat pukulan lawannya." - The Birth of Tragedy
-</blockquote>
 
-<blockquote>
+
+
 Marcus Aurelius
 
 "Kebahagiaan hidupmu tergantung pada kualitas pikiranmu." - Meditations
 "Alam semesta berubah; hidup kita adalah apa yang pikiran kita buat." - Meditations
-</blockquote>
 
-<blockquote>
+
+
 Epictetus
 
 "Yang mengganggu pikiran manusia bukanlah peristiwa itu sendiri, tetapi penilaian kita tentang peristiwa itu." - Discourses
 "Bukan apa yang terjadi padamu, tetapi bagaimana kamu bereaksi yang penting." - Discourses
-</blockquote>
+
 
 ![Image](https://i.ibb.co.com/0XxgQjw/main-qimg-ceb4dce405815cfb0bbc56de1ac760d1.jpg)
 
