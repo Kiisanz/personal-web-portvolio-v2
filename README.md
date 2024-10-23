@@ -1,51 +1,22 @@
-# Astro Starter Kit: Minimal
+# Personal Portfolio Website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Welcome to my personal portfolio website repository! This project showcases my work and includes various projects, skills, and contact information. Built using **Astro** and **Bulma** to ensure high performance and responsive design.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## Features
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- **Fast Performance**: Leveraging Astro's hybrid static rendering for optimal page load speed.
+- **Responsive Design**: Fully responsive layout using the Bulma CSS framework for a consistent look across devices.
+- **Clean & Minimalistic**: Focus on user experience with a simple and modern UI.
+- **Projects Section**: Showcases my key projects with descriptions and links.
+- **Contact Form**: A functional contact form to reach out directly.
 
-## 🚀 Project Structure
+## Tech Stack
 
-Inside of your Astro project, you'll see the following folders and files:
+This project is built using:
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- **Astro**: For fast static and hybrid websites.
+- **Bulma**: A modern CSS framework based on Flexbox, used for responsiveness and design.
+- **HTML5, CSS3, and JavaScript (ES6+)**: Core web technologies to build the structure, style, and functionality.
+- **Netlify**: Deployed using Netlify for continuous deployment and hosting.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-# git-test
-# git-test
-# ss
-# portooo
