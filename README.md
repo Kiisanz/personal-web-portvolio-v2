@@ -17,6 +17,8 @@ This project is built using:
 - **Astro**: For fast static and hybrid websites.
 - **Bulma**: A modern CSS framework based on Flexbox, used for responsiveness and design.
 - **HTML5, CSS3, and JavaScript (ES6+)**: Core web technologies to build the structure, style, and functionality.
-- **Netlify**: Deployed using Netlify for continuous deployment and hosting.
+- **Vercel**: Deployed using Netlify for continuous deployment and hosting.
+
+  See Demo : [rifkicode.site](rifkicode.site)
 
 
