@@ -5,7 +5,7 @@ client: Personal Project
 year: 2024
 company: ""
 image: "https://i.ibb.co.com/LNkvCg1/dv9y2020725172020-07-202551722logo-ground-E-BOOK.jpg"
-source: "[https://github.com/Kiisanz/ebuxs]"
+source: "https://github.com/Kiisanz/ebuxs"
 ---
 
 # ebuxs
