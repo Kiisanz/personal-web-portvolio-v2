@@ -13,9 +13,12 @@ image: "https://static.rmaul.dev/1_ZQWlVVyCANAmgUKJU9xUlw.gif"
 
 # Apa Itu Backpressure? Senior Developer Wajib Tahu!
 
-Di dunia software engineering, kita sering dengar istilah kayak *“queue overload”*, *“buffer penuh”*, atau *“stream lambat”*. Tapi kalau kamu pernah ngalamin sistem tiba-tiba jadi lelet, atau bahkan crash gara-gara data numpuk nggak ke-handle—besar kemungkinan kamu sedang ketemu sama yang namanya **backpressure**.
+Di dunia software engineering, kita sering dengar istilah kayak *“queue overload”*, *“buffer penuh”*, atau *“stream lambat”*.
+Tapi kalau kamu pernah ngalamin sistem tiba-tiba jadi lelet,
+atau bahkan crash gara-gara data numpuk nggak ke-handle—besar kemungkinan kamu sedang ketemu sama yang namanya **backpressure**.
 
-Istilah ini kedengeran teknikal banget, padahal sebenarnya konsepnya sederhana. Dan yes, kalau kamu seorang developer—apalagi yang main di level backend, streaming, atau distributed systems—**kamu wajib tahu dan ngerti cara ngatasinnya**.
+Istilah ini kedengeran teknikal banget, padahal sebenarnya konsepnya sederhana.
+Dan yes, kalau kamu seorang developer—apalagi yang main di level backend, streaming, atau distributed systems—**kamu wajib tahu dan ngerti cara ngatasinnya**.
 
 ---
 
@@ -23,7 +26,12 @@ Istilah ini kedengeran teknikal banget, padahal sebenarnya konsepnya sederhana. 
 
 **Backpressure** adalah mekanisme kontrol aliran data yang terjadi saat **produsen (producer)** mengirim data **lebih cepat** daripada **konsumen (consumer)** bisa memprosesnya.
 
-![Backpressure Illustration](https://static.rmaul.dev/1_ZQWlVVyCANAmgUKJU9xUlw.gif)
+<img
+  src="https://static.rmaul.dev/1_ZQWlVVyCANAmgUKJU9xUlw.gif"
+  alt="Backpressure Illustration"
+  width="500"
+  style={{ display: "block", margin: "1rem auto" }}
+/>
 
 > ⚠️ Akibatnya? Data numpuk, buffer penuh, sistem bisa melambat atau bahkan tumbang.
 
